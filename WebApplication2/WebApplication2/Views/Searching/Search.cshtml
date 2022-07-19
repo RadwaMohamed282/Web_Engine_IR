@@ -1,0 +1,30 @@
+﻿@model WebApplication2.Models.Inverted_Index
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Searching Task</h2>
+@*<h1>@Model.DocID</h1>*@
+
+@using (Html.BeginForm("Search", "Searching"))
+ {
+    <div class="form-horizontal">
+        @*@Html.ValidationSummary(true)*@
+        <br />
+        <div class="form-group">
+            <label for="Term">Term</label>
+            @Html.TextBoxFor(m => m.Term, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-group">Search</button>
+
+        @*-- @Html.ActionLink(item.Name, "Show", "Searching", new { url = Model.Term }, null)*@
+
+        <ul>
+            @foreach (string wordd in @ViewBag.term)
+             {
+                <li><a href="Your Link"> @wordd</a></li>
+             }
+        </ul>
+    </div>
+
+ }
